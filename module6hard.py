@@ -84,7 +84,7 @@ class Triangle(Figure):
         p = sum(self._Figure__sides) / 2
         self.__height = 2 * sqrt(p * (p - self._Figure__sides[0]) * (p - self._Figure__sides[1]) *
                                  (p - self._Figure__sides[2])) / self._Figure__sides[0]
-
+# Высота ищется 1 из 3. Остальные две ищутся аналогично.
     def get_square(self):
         S = self.__height * self._Figure__sides[0]
 
