@@ -5,16 +5,12 @@ class Figure:
     sides_count = 0
 
     def __init__(self, sides, color, filled=False):
-        if not isinstance(sides, int):
-            if len(sides) != self.sides_count:
-                self.__sides = [1] * self.sides_count
-            else:
-                self.__sides = sides
+        if isinstance(sides, int):
+            sides = [sides]
+        if len(sides) != self.sides_count:
+            self.__sides = [1] * self.sides_count
         else:
-            if self.sides_count > 1:
-                self.__sides = [1] * self.sides_count
-            else:
-                self.__sides = sides
+            self.__sides = sides
         self.__color = color
         self.filled = filled
 
@@ -73,7 +69,7 @@ class Circle(Figure):
 
     def __init__(self, sides, color):  #Зададим параметр длина окружности
         super().__init__(sides, color)
-        self.__radius = self._Figure__sides / (2 * pi)
+        self.__radius = self._Figure__sides[0] / (2 * pi)
 
     def get_square(self):
         S = pi * self.__radius ** 2
